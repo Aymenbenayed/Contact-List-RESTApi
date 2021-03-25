@@ -1,0 +1,19 @@
+.users-content{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:5% 0px;
+}
+.users-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5%;
+}
+
+h1{
+    font-family: "Helvetica Neue";
+    font-size: 45px;
+}

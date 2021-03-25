@@ -1,0 +1,28 @@
+.user-card{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #bcd0d1;
+    border: #bcd0d1;
+    border-radius: 20px;
+    height: 300px;
+    width: 200px;
+    margin: 20px;
+    padding: 20px;
+}
+.avatar{
+    width: 40px;
+    margin: 20px;
+}
+.delete-edit-btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.delete-edit-btns img{
+    width: 50px;
+    margin: 10px;
+    cursor: pointer;
+}

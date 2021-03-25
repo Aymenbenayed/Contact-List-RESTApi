@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+.app-btn{
+  background-color: #bcd0d1;
+  border-radius: 5px;
+  border: 3px solid #9cbdb1;
+  width: 150px;
+  height: 50px;
+  margin: 3%;
+}
