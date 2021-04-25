@@ -1,6 +1,7 @@
 /**
  * POST handler
  *  */
+
 const postUser = async (req, res) => {
     try {
         const { name, email, phone } = req.body

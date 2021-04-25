@@ -14,8 +14,11 @@ app.use(express.json())
 const connectDB = require('./config/connectDB')
 connectDB()
 
+
 //6-Routes
 app.use('/api/users', require('./routes/user'))
+
+
 
 //4- create server 
 const PORT = process.env.PORT

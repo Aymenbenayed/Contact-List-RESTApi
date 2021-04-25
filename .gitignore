@@ -1,1 +1,5 @@
-node_modules
+# dotenv
+.env
+
+# node modules directory
+/node_modules

@@ -15,14 +15,12 @@ const UserList = () => {
         dispatch(getUsers())
     },[dispatch])
 
-
+    
     return(
-        
-        <div className="users-content">
+        <div className="categories-content">
             { isLoading ? <h1>estanaaaaaa</h1> : 
                 <div className="users-list">
-                {users.map(user =>
-                    <UserCard key={user._id} user={user} />)}
+                {users.map(user => <UserCard key={user._id} user={user} />)}
                 </div>
             }
         </div>

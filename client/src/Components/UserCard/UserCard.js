@@ -23,7 +23,6 @@ const UserCard = ({ user }) => {
             alt="delete-icon"
             onClick={()=>dispatch(deleteUser(user._id))}
             />
-
             <Link to="/edit_user">
                 <img src={editBtn}
                 alt="edit-icon"

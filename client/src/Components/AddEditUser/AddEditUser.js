@@ -18,8 +18,6 @@ const AddEditUser = ({history}) => {
     const [user, setUser] = useState({name:"",email:"",phone:0})
     const dispatch = useDispatch()
 
-
-
     const handleChange=(e)=>{
         setUser({...user,[e.target.name]:e.target.value })
     }
@@ -37,7 +35,17 @@ const AddEditUser = ({history}) => {
             />
             <Form.Text className="text-muted">Name is required!</Form.Text>
         </Form.Group>
+        {/* input pseudo */}
 
+        <Form.Group controlId="formBasicpseudo">
+            <Form.Control type="text" 
+            placeholder="enter User pseudo..." 
+            name="pseudo"
+            value={user.pseudo}
+            onChange={handleChange}
+            />
+            <Form.Text className="text-muted">Pseudo</Form.Text>
+        </Form.Group>
             {/* input email */}
         <Form.Group controlId="formBasicEmail">
             <Form.Control type="Email" 
@@ -58,6 +66,26 @@ const AddEditUser = ({history}) => {
             onChange={handleChange}
             />
             <Form.Text className="text-muted">Phone</Form.Text>
+        </Form.Group>
+            {/* input password */}
+        <Form.Group controlId="formBasicpassword">
+            <Form.Control type="Password" 
+            placeholder="enter User password..." 
+            name="password"
+            value={user.password}
+            onChange={handleChange}
+            />
+            <Form.Text className="text-muted">Password</Form.Text>
+        </Form.Group>
+            {/* input Adress */}
+        <Form.Group controlId="formBasicAdress">
+            <Form.Control type="text" 
+            placeholder="enter User adress..." 
+            name="adress"
+            value={user.adress}
+            onChange={handleChange}
+            />
+            <Form.Text className="text-muted">Adresse</Form.Text>
         </Form.Group>
         
         {/* add or edit button */}
