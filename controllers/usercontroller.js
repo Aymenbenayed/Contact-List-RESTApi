@@ -4,12 +4,12 @@
 
 const postUser = async (req, res) => {
     try {
-        const { name, email, phone } = req.body
+        const { name, email, phone , adress , pseudo } = req.body
       // handling errors : email & name are required
-        if (!email || !name) {
+        /* if (!email || !name) {
         res.status(400).send({ msg: 'Email and Name are required !!!' })
         return;
-        }
+        } */
 
       // handling errors : test if user already exist with email
         const user = await User.findOne({ email })
@@ -19,7 +19,7 @@ const postUser = async (req, res) => {
     }
 
       // create and save the new user
-    const newUser = new User({ name, email, phone })
+    const newUser = new User({ name, email, phone , pseudo , adress  })
     await newUser.save()
         res.status(200).send({ msg: 'User added successfully ...', newUser })
 

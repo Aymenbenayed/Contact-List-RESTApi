@@ -7,4 +7,4 @@ export const GET_USER = "GET_USER"
 
 export const TOGGLE_TRUE = "TOGGLE_TRUE"
 export const TOGGLE_FALSE = "TOGGLE_FALSE"
-
+export const VIDE_ERRORS = "VIDE_ERRORS"

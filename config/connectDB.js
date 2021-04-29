@@ -9,8 +9,7 @@ const connectDB = async () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,
-            useFindAndModify: true
-        })
+            useFindAndModify: true})
         console.log('Mongoose is connected to DB ..')
     } catch (error) {
         console.log(error)

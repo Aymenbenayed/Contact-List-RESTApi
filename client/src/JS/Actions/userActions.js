@@ -25,11 +25,13 @@ console.log(error)
 }}
 
 //add user 
-export const addUser = (newUser) => async (dispatch) => {
+export const addUser = (newUser,history,user) => async (dispatch) => {
     try {
         await axios.post("/api/users/",newUser)
-        dispatch(getUsers())
+        dispatch(getUsers());
+        history.push("/")
     } catch (error) {
+        dispatch({ type: GET_USERS_FAIL, payload: error.response.data.errors });
         console.log(error)
     }}
 
@@ -43,20 +45,16 @@ export const editUser = (id,newUser) => async (dispatch) => {
     } catch (error) {
         console.log(error)
     }}
-
     //get one user
 
 export const getUser = (id) => async (dispatch) => {
-    /* dispatch({type:GET_USERS_LOAD}) */
     try {
         const res = await axios.get(`/api/users/${id}`)
-        //console.log(res)
             dispatch({type: GET_USER,payload:res.data.userToFind})
+            console.log(res.data)
     } catch (error) {
-        console.log(error)
-    }}
-
-
+        
+        console.log(error)}}
 
     //toggle true 
     export const toggleTrue = () =>{
@@ -65,8 +63,16 @@ export const getUser = (id) => async (dispatch) => {
         }}
 
     //toggle false
+
+
     export const toggleFalse = () =>{
         return{
             type: TOGGLE_FALSE
         }}
         
+        export const videErrors = () => {
+            return {
+              type: "VIDE_ERRORS",
+            };
+          };
+          

@@ -15,6 +15,7 @@ const { postUser,
     editUser
 } = require('../controllers/usercontroller')
 
+const {addingValidation, validation} =require  ('../middlewares/validators/user')
 
 
 
@@ -39,7 +40,7 @@ router.get('/test', (req, res) => {
  * @data : req.body
  * @acess : public
  */
-router.post('/', postUser)
+router.post('/', addingValidation(),validation ,postUser)
 
 
 /**

@@ -1,28 +1,59 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {toggleTrue,deleteUser,getUser} from '../../JS/Actions/userActions'
 import {useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
-//import User from '../../../../backend/models/User'
 import './UserCard.css'
 import editBtn from '../../Assets/editBtn.png'
-import avatar from '../../Assets/avatar.png'
 import deleteBtn from '../../Assets/deleteBtn.png'
-
-const UserCard = ({ user }) => {
+import avatar from '../../Assets/avatar.png'
+import { Button, Modal } from 'react-bootstrap'
+const UserCard = ({ user , history }) => {
     const dispatch = useDispatch()
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const handleDelete = () => {
+        dispatch(deleteUser(user._id));
+      };
+    
     return(
         
         <div className="user-card">
-            <img src={avatar} alt="avatar" className="avatar"/>
+            
+            <Link to={`/Profile/${user._id}`}>
+                <img src={avatar} alt="avatar" className="avatar    "/>
+            </Link>
             <h3>{user.name}</h3>
-            <span>{user.email} </span>
             <span>{user.phone} </span>
             <div className="delete-edit-btns">
-            
+            <div>
             <img src= {deleteBtn}
+             onClick={handleShow}
             alt="delete-icon"
-            onClick={()=>dispatch(deleteUser(user._id))}
             />
+            <Modal show={show} onHide={handleClose} animation={false}>
+                <Modal.Header closeButton>
+                <Modal.Title>Delete</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                are you sure you want to delete this User!!
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                    Cancel
+                </Button>
+                
+                <Button variant="primary" onClick={() => {
+                        handleDelete();handleClose();}}>
+                        Delete
+                </Button>
+                </Modal.Footer>
+            </Modal>
+            
+            </div>
+            
             <Link to="/edit_user">
                 <img src={editBtn}
                 alt="edit-icon"
