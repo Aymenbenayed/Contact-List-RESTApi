@@ -5,21 +5,19 @@ import {
     LOGIN_USER,
     REGISTER_USER,
     LOGOUT_USER,
-  } from "../actionTypes/user";
-  
+  } from "../Constants/user";
   import axios from "axios";
   
+
+
   export const register = (newUser, history) => async (dispatch) => {
     dispatch({ type: LOAD_USER });
-    console.log(history);
     try {
       const result = await axios.post("/api/user/signup", newUser);
-  
       dispatch({ type: REGISTER_USER, payload: result.data }); //msg , token , user
-      history.push("/profile");
+      history.push("/Account");
     } catch (error) {
       console.log(error.response.data.errorrs);
-      // error.response.data.errors.map((el) => alert(el.msg));
       dispatch({ type: FAIL_USER, payload: error.response.data.errors });
     }
   };
@@ -30,7 +28,7 @@ import {
     try {
       const result = await axios.post("/api/user/signin", user);
       dispatch({ type: LOGIN_USER, payload: result.data }); //msg /token , user
-      history.push("/Profile");
+      history.push("/Account");
     } catch (error) {
       // error.response.data.errors.map((el) =>
       //   setTimeout(function () {

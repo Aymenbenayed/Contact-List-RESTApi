@@ -22,6 +22,37 @@ app.use('/api/contacts', require('./routes/contact'))
 
 
 
+/*sendgrid contact us */
+
+/*****sendmail (contact us )********* */
+const nodemailer = require('nodemailer')
+const sendGridTransport = require('nodemailer-sendgrid-transport');
+const transporter = nodemailer.createTransport(sendGridTransport({
+    auth:{api_key:process.env.SENDGRID_API}}))
+app.post('/send', (req, res) => {
+        const { name , phone , email, message ,subject } = req.body
+        console.log(req.body)
+        transporter.sendMail({
+        to:'laymen.bnmohamed@gmail.com',
+        from: 'laymen.bnmohamed@gmail.com',
+        subject:subject,
+        html:`
+        <h1> Email:<br></h1>
+        <h1> ${email}</h1>
+        <h1>Full Name: <br></h1>
+        <h2>${name}</h2>
+        <h1>Phone:<br></h1>
+        <h2>(+216)${phone}</h2>
+        <h2>Message:<br></h2>
+        <p>${message}</p>`})
+        .then(resp => {
+        res.json({resp})
+        })
+        .catch(err => {
+        console.log(err)
+        })})
+
+
 if(process.env.NODE_ENV === "production"){
     app.use(express.static('client/build'))
     const path=require('path')

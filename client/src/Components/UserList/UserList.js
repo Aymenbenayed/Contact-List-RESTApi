@@ -2,6 +2,7 @@ import React ,{ useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux'
 import { getContacts } from '../../JS/Actions/contactActions'
 import ContactCard from '../ContactCard/ContactCard'
+import Home from '../Home/Home'
 import './UserList.css'
 
 
@@ -18,6 +19,7 @@ const UserList = () => {
     
     return(
         <div className="categories-content">
+            <Home />
             { isLoading ? <h1>estanaaaaaa</h1> : 
                 <div className="users-list">
                 {contacts.map(contact => <ContactCard key={contact._id} contact={contact} />)}

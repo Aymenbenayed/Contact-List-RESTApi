@@ -13,7 +13,7 @@ const dispatch = useDispatch()
         <div>
             
             {/* contact list button*/ }
-            <Link to="/">
+            <Link to="Listcontacts">
                 <button className="app-btn" > Contact List</button>
             </Link>
 

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { getContact } from '../../JS/Actions/contactActions';
 
 const Profile = () => {
+
     const {_id} = useParams()
     const contact=useSelector(state=> state.contactReducer.contact)
     const dispatch = useDispatch();
@@ -27,21 +28,16 @@ const Profile = () => {
                   src="https://bootdey.com/img/Content/avatar/avatar7.png"
                   alt="Admin"
                   className="rounded-circle"
-                  width={150}
-                />
+                  width={150}/>
                 <div className="mt-3">
                   <h4>{contact && contact.name}</h4>
-                  <p className="text-secondary mb-1">Welcome in our website </p>
                   <Link to="/edit">
                         <i className="fas fa-user-edit"></i>
                   </Link>
-
                 </div>
               </div>
             </div>
           </div>
-          
-          
         </div>
         <div className="col-md-8">
           <div className="card mb-3">

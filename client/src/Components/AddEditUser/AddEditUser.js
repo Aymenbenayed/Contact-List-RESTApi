@@ -1,6 +1,7 @@
 import {Button, Form, Modal} from 'react-bootstrap'
 import {useSelector,useDispatch} from 'react-redux'
 import React, {useState,useEffect} from 'react'
+import Home from '../Home/Home'
 import {addContact,editContact, videErrors} from '../../JS/Actions/contactActions'
 import './AddEditUser.css'
 import addBtn from '../../Assets/addBtn.png'
@@ -40,7 +41,9 @@ const AddEditUser = ({history}) => {
 
 
     return (
-        <Form className="my-form">
+        <div>
+             <Home />
+             <Form className="my-form">
         {errors.length > 0 ? errors.map((el) => <Errors error={el} />) : null}
             {/*input name*/ }
         <Form.Group controlId="formBasicName">
@@ -124,6 +127,9 @@ const AddEditUser = ({history}) => {
             />
         }
 </Form>
+        </div>
+       
+        
 )}
 
 export default AddEditUser

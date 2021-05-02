@@ -5,6 +5,8 @@ exports.registerValidation = () => [
   check("lastName", "lastname is required").not().isEmpty(),
   check("email", "enter a valid email").isEmail(),
   check("password", "enter a valid password").isLength({ min: 6 }),
+  check("phone", "enter a valid phone").isLength({ min: 8 }),
+  
 ];
 exports.signinValidation = () => [
   check("email", "email is required").not().isEmpty(),

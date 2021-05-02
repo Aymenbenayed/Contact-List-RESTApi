@@ -17,7 +17,7 @@
 }
 .logo{
     cursor: pointer ;
-    height: 10px;
+    height: 70px;
 }
 .nav__links{
 list-style: none;
@@ -36,6 +36,8 @@ transition: all 0.3s ease 0s;
     justify-content: space-between;
 }
 .button {
+    width: 100px;
+    margin: 0px 5px;
     padding:9px 5px ;
     background-color: rgba(0,136,160,1);
     border : none;
@@ -45,4 +47,8 @@ transition: all 0.3s ease 0s;
 }
 .button:hover{
     background-color: rgba(0,136,160,0.8)
+}
+
+.name{
+    color: blue;
 }

@@ -7,6 +7,7 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+
 /* import '~mdb-ui-kit/css/mdb.min.css'; */
 
 ReactDOM.render(
