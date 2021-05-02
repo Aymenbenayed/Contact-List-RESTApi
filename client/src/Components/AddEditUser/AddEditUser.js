@@ -1,27 +1,26 @@
 import {Button, Form, Modal} from 'react-bootstrap'
 import {useSelector,useDispatch} from 'react-redux'
 import React, {useState,useEffect} from 'react'
-import {addUser,editUser, videErrors} from '../../JS/Actions/userActions'
+import {addContact,editContact, videErrors} from '../../JS/Actions/contactActions'
 import './AddEditUser.css'
 import addBtn from '../../Assets/addBtn.png'
 import editBtn from '../../Assets/editBtn.png'
 import Errors from '../Errors/Erorrs'
 
 const AddEditUser = ({history}) => { 
-    const isEdit = useSelector(state => state.userReducer.isEdit)
-    const errors = useSelector((state) => state.userReducer.errors);
-    const userEdit = useSelector(state => state.userReducer.user)
+    const isEdit = useSelector(state => state.contactReducer.isEdit)
+    const errors = useSelector((state) => state.contactReducer.errors);
+    const contactEdit = useSelector(state => state.contactReducer.contact)
     useEffect(() => {
-        isEdit? setUser(userEdit) : setUser({ name:"" , pseudo:"",email:"" , phone: 0 ,  adress:""})
+        isEdit? setContact(contactEdit) : setContact({ name:"" , pseudo:"",email:"" , phone: 0 ,  adress:""})
         }
-    ,[isEdit,userEdit]) 
+    ,[isEdit,contactEdit]) 
 
-    const [user, setUser] = useState({name:"" , pseudo:"" , email:"" , phone:0 , adress:""})
+    const [contact, setContact] = useState({name:"" , pseudo:"" , email:"" , phone:0 , adress:""})
     const dispatch = useDispatch()
 
     const handleChange=(e)=>{
-        setUser({...user,[e.target.name]:e.target.value })
-    }
+        setContact({...contact,[e.target.name]:e.target.value })}
     useEffect(() => {
         return () => {
           dispatch(videErrors());
@@ -32,7 +31,7 @@ const AddEditUser = ({history}) => {
 
       //confirmation Edit 
       const handleEdit = () => {
-        dispatch(editUser(user._id, user));
+        dispatch(editContact(contact._id, contact));
       };
     
         const [show, setShow] = useState(false);
@@ -46,18 +45,18 @@ const AddEditUser = ({history}) => {
             {/*input name*/ }
         <Form.Group controlId="formBasicName">
             <Form.Control type="Name" 
-            placeholder="Enter User name..." 
+            placeholder="Enter Contact name..." 
             name="name"
-            value={user.name}
+            value={contact.name}
             onChange={handleChange}/>
             <Form.Text className="text-muted">Name is required!</Form.Text>
         </Form.Group>
                 {/* Pseudo */}
         <Form.Group controlId="formBasicName">
             <Form.Control type="Name" 
-            placeholder="Enter User pseudo..." 
+            placeholder="Enter Contact pseudo..." 
             name="pseudo"
-            value={user.pseudo}
+            value={contact.pseudo}
             onChange={handleChange}/>
             <Form.Text className="text-muted">Pseudo is required!</Form.Text>
         </Form.Group>
@@ -65,9 +64,9 @@ const AddEditUser = ({history}) => {
             {/* input email */}
         <Form.Group controlId="formBasicEmail">
             <Form.Control type="Email" 
-            placeholder="enter User email..."
+            placeholder="enter Contact email..."
             name="email"
-            value={user.email}
+            value={contact.email}
             onChange={handleChange}
             />
             <Form.Text className="text-muted">Email is required!</Form.Text>
@@ -76,9 +75,9 @@ const AddEditUser = ({history}) => {
 
         <Form.Group controlId="formBasicphone">
             <Form.Control type="Number" 
-            placeholder="enter User phone..." 
+            placeholder="enter Contact phone..." 
             name="phone"
-            value={user.phone}
+            value={contact.phone}
             onChange={handleChange}/>
             <Form.Text className="text-muted">Phone</Form.Text>
         </Form.Group>
@@ -86,9 +85,9 @@ const AddEditUser = ({history}) => {
         {/* Pseudo */}
         <Form.Group controlId="formBasicName">
             <Form.Control type="Name" 
-            placeholder="Enter User adress..." 
+            placeholder="Enter Contact adress..." 
             name="adress"
-            value={user.adress}
+            value={contact.adress}
             onChange={handleChange}/>
             <Form.Text className="text-muted">Adress </Form.Text>
         </Form.Group>
@@ -104,7 +103,7 @@ const AddEditUser = ({history}) => {
                 <Modal.Title>Update</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                are you sure you want to update the user!!
+                are you sure you want to update the contact!!
                 </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
@@ -121,7 +120,7 @@ const AddEditUser = ({history}) => {
 
             :
             <img src= {addBtn} alt="delete-icon" className="add-btn"
-                onClick={()=> {dispatch(addUser(user,history))} }
+                onClick={()=> {dispatch(addContact(contact,history))} }
             />
         }
 </Form>

@@ -16,7 +16,8 @@ connectDB()
 
 
 //6-Routes
-app.use('/api/users', require('./routes/user'))
+app.use("/api/user", require("./routes/user"));
+app.use('/api/contacts', require('./routes/contact'))
 
 
 

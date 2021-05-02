@@ -1,85 +1,18 @@
-// require express
-const express = require('express')
+const express = require("express");
+const router = express.Router();
+const { Signup, SignIn } = require("../controllers/user");
+const isAuth = require("../middlewares/User/auth_jwt");
 
-// require Router
-const router = express.Router()
+const {
+  registerValidation,
+  signinValidation,
+  validation,
+} = require("../middlewares/validators/user");
 
-// require model contact
-const User = require('../models/User')
+router.post("/signup", registerValidation(), validation, Signup);
+router.post("/signin", signinValidation(), validation, SignIn);
+router.get("/current", isAuth, (req, res) => {
+  res.send(req.user);
+});
 
-// require controllers
-const { postUser,
-    getAllUsers,
-    getUser,
-    deleteUser,
-    editUser
-} = require('../controllers/usercontroller')
-
-const {addingValidation, validation} =require  ('../middlewares/validators/user')
-
-
-
-// ************** All routes **********************
-
-/**
- * @desc : test route
- * @method : GET
- * @path : http://localhost:7000/api/contacts/test
- * @data : nothing
- * @acess : public
- */
-router.get('/test', (req, res) => {
-    res.status(200).send('Hello test')
-})
-
-
-/**
- * @desc : add user
- * @method : POST
- * @path : http://localhost:7000/api/users
- * @data : req.body
- * @acess : public
- */
-router.post('/', addingValidation(),validation ,postUser)
-
-
-/**
- * @desc : get all users
- * @method : GET
- * @path : http://localhost:7000/api/users
- * @data : no data
- * @acess : public
- */
-router.get('/', getAllUsers)
-
-/**
- * @desc : get one user
- * @method : GET
- * @path : http://localhost:7000/api/users/:_id
- * @data : req.params
- * @acess : public
- */
-router.get('/:_id', getUser)
-
-/**
- * @desc : delete user
- * @method : DELETE
- * @path : http://localhost:7000/api/users/:_id
- * @data : req.params
- * @acess : public
- */
-
-router.delete('/:_id', deleteUser)
-
-
-/**
- * @desc : edit user
- * @method : PUT
- * @path : http://localhost:7000/api/users/:_id
- * @data : req.params & req.body
- * @acess : public
- */
-router.put('/:_id', editUser)
-
-
-module.exports = router
+module.exports = router;

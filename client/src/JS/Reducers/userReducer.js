@@ -1,24 +1,65 @@
-import {GET_USERS_FAIL,GET_USERS_LOAD,GET_USERS_SUCESS,GET_USER,TOGGLE_TRUE,TOGGLE_FALSE,VIDE_ERRORS} from '../Constants/ActionsTypes'
-
-const initState =  {
-    users:[],
-    errors:[],
-    loading: false,
-    user:[],
-    isEdit: false,
-}
-
-const userReducer = (state = initState,{type,payload}) => {
-    switch(type){
-        case GET_USERS_LOAD : return { ...state , loading : true }
-        case GET_USERS_SUCESS : return {...state, loading : false , users:payload}
-        case GET_USERS_FAIL : return {...state, loading : false , errors: payload}
-        case GET_USER : return {...state, user:payload}
-        case TOGGLE_TRUE : return {...state, isEdit:true} 
-        case TOGGLE_FALSE : return {...state, isEdit:false}
-        case VIDE_ERRORS:
-      return { ...state, errors: [] };
-        default : return state 
+import {
+    CURRENT_USER,
+    FAIL_USER,
+    LOAD_USER,
+    LOGIN_USER,
+    REGISTER_USER,
+    LOGOUT_USER,
+  } from "../Constants/user";
+  
+  const initialState = {
+    user: null,
+    isAuth: false,
+    loadUser: false,
+    errors: [],
+  };
+  
+  const userReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
+      case LOAD_USER:
+        return { ...state, loadUser: true };
+      case REGISTER_USER:
+        localStorage.setItem("token", payload.token);
+        return {
+          ...state,
+          loadUser: false,
+          user: payload.user,
+          isAuth: true,
+          errors: [],
+        };
+      case LOGIN_USER:
+        localStorage.setItem("token", payload.token);
+        return {
+          ...state,
+          loadUser: false,
+          user: payload.user,
+          isAuth: true,
+          errors: [],
+        };
+      case CURRENT_USER:
+        return {
+          ...state,
+          loadUser: false,
+          user: payload,
+          isAuth: true,
+          errors: [],
+        };
+      case FAIL_USER:
+        return { ...state, loadUser: false, errors: payload };
+      case LOGOUT_USER:
+        localStorage.removeItem("token");
+        return {
+          ...state,
+          loadUser: false,
+          errors: [],
+          user: {},
+          isAuth: false,
+        };
+      case "VIDE_ERRORS":
+        return { ...state, errors: [] };
+      default:
+        return state;
     }
-}
-export default userReducer
+  };
+  export default userReducer;
+  

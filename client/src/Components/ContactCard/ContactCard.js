@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import {toggleTrue,deleteUser,getUser} from '../../JS/Actions/userActions'
+import {toggleTrue,deleteContact,getContact} from '../../JS/Actions/contactActions'
 import {useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
-import './UserCard.css'
+import './ContactCard.css'
 import editBtn from '../../Assets/editBtn.png'
 import deleteBtn from '../../Assets/deleteBtn.png'
 import avatar from '../../Assets/avatar.png'
 import { Button, Modal } from 'react-bootstrap'
-const UserCard = ({ user , history }) => {
+const ContactCard = ({ contact , history }) => {
     const dispatch = useDispatch()
     const [show, setShow] = useState(false);
 
@@ -15,18 +15,18 @@ const UserCard = ({ user , history }) => {
     const handleShow = () => setShow(true);
 
     const handleDelete = () => {
-        dispatch(deleteUser(user._id));
+        dispatch(deleteContact(contact._id));
       };
     
     return(
         
         <div className="user-card">
             
-            <Link to={`/Profile/${user._id}`}>
+            <Link to={`/Profile/${contact._id}`}>
                 <img src={avatar} alt="avatar" className="avatar    "/>
             </Link>
-            <h3>{user.name}</h3>
-            <span>{user.phone} </span>
+            <h3>{contact.name}</h3>
+            <span>{contact.phone} </span>
             <div className="delete-edit-btns">
             <div>
             <img src= {deleteBtn}
@@ -46,9 +46,7 @@ const UserCard = ({ user , history }) => {
                 </Button>
                 
                 <Button variant="primary" onClick={() => {
-                        handleDelete();handleClose();}}>
-                        Delete
-                </Button>
+                        handleDelete();handleClose();}}>Delete</Button>
                 </Modal.Footer>
             </Modal>
             
@@ -57,10 +55,10 @@ const UserCard = ({ user , history }) => {
             <Link to="/edit_user">
                 <img src={editBtn}
                 alt="edit-icon"
-                onClick={()=>{dispatch(toggleTrue()); dispatch(getUser(user._id))}}/>
+                onClick={()=>{dispatch(toggleTrue()); dispatch(getContact(contact._id))}}/>
             </Link>
             </div>
         </div>
     )
 }
-export default UserCard
+export default ContactCard

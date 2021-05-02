@@ -2,7 +2,7 @@ import React from 'react'
 import './Home.css'
 
 import {Link} from 'react-router-dom' 
-import {toggleFalse} from '../../JS/Actions/userActions'
+import {toggleFalse} from '../../JS/Actions/contactActions'
 import {useDispatch} from 'react-redux'
 
 const Home = () => {
@@ -12,16 +12,16 @@ const dispatch = useDispatch()
     return(
         <div>
             
-            {/* user list button*/ }
+            {/* contact list button*/ }
             <Link to="/">
-                <button className="app-btn" > User List</button>
+                <button className="app-btn" > Contact List</button>
             </Link>
-            
-              {/* add user button */}
+
+              {/* add contact button */}
             <Link to="/add_user">
                 <button className="app-btn" 
                 onClick={()=>dispatch(toggleFalse())}
-                > Add User </button>
+                > Add Contact </button>
             </Link>
         </div>  
     )

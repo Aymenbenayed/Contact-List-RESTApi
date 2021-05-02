@@ -2,15 +2,15 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom';
-import { getUser } from '../../JS/Actions/userActions';
+import { getContact } from '../../JS/Actions/contactActions';
 
 const Profile = () => {
     const {_id} = useParams()
-    const user=useSelector(state=> state.userReducer.user)
+    const contact=useSelector(state=> state.contactReducer.contact)
     const dispatch = useDispatch();
     
     useEffect(() => {  
-        dispatch(getUser(_id));
+        dispatch(getContact(_id));
         }, [_id, dispatch])
         console.log(_id)
 
@@ -30,10 +30,8 @@ const Profile = () => {
                   width={150}
                 />
                 <div className="mt-3">
-                  <h4>{user && user.name}</h4>
+                  <h4>{contact && contact.name}</h4>
                   <p className="text-secondary mb-1">Welcome in our website </p>
-                  <p className="text-muted font-size-sm">nice shopping</p>
-
                   <Link to="/edit">
                         <i className="fas fa-user-edit"></i>
                   </Link>
@@ -53,7 +51,7 @@ const Profile = () => {
                   <h6 className="mb-0">Full Name</h6>
                 </div>
                 <div className="col-sm-9 text-secondary">
-                  {(user && user.name) || ""}
+                  {(contact && contact.name) || ""}
                 </div>
               </div>
               <hr />{" "}
@@ -62,7 +60,7 @@ const Profile = () => {
                   <h6 className="mb-0">Pseudo</h6>
                 </div>
                 <div className="col-sm-9 text-secondary">
-                  {(user && user.pseudo) || ""}
+                  {(contact && contact.pseudo) || ""}
                 </div>
               </div>
               <hr />
@@ -73,7 +71,7 @@ const Profile = () => {
                   <h6 className="mb-0">Email</h6>
                 </div>
                 <div className="col-sm-9 text-secondary">
-                  {(user && user.email) || ""}
+                  {(contact && contact.email) || ""}
                 </div>
               </div>
               <hr />
@@ -82,7 +80,7 @@ const Profile = () => {
                   <h6 className="mb-0">Phone</h6>
                 </div>
                 <div className="col-sm-9 text-secondary">
-                  {(user && user.phone) || ""}
+                  {(contact && contact.phone) || ""}
                 </div>
               </div>
               <hr />
@@ -90,7 +88,7 @@ const Profile = () => {
                 <div className="col-sm-3">
                   <h6 className="mb-0">Address</h6>
                 </div>
-                <div className="col-sm-9 text-secondary">{(user && user.adress) || ""}</div>
+                <div className="col-sm-9 text-secondary">{(contact && contact.adress) || ""}</div>
               </div>
             </div>
           </div>

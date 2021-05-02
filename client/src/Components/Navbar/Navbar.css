@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+
+
+.li a button{
+    font-weight: 500;
+    font-size: 16 px ;
+    color :#6a7f86;
+    text-decoration: none;
+    
+}
+.navbar{
+    display: flex;
+    justify-content:  space-between;
+    align-items: center;
+    padding:30px 10%;
+    background-color:#d9e8f3 ;
+}
+.logo{
+    cursor: pointer ;
+    height: 10px;
+}
+.nav__links{
+list-style: none;
+}
+.nav__links li {
+display : inline-block;
+padding: 0px 20px ;
+}
+.nav__links li a {
+transition: all 0.3s ease 0s;
+}
+.nav__links li a:hover {
+    color:#0088e9
+}
+.btns{
+    justify-content: space-between;
+}
+.button {
+    padding:9px 5px ;
+    background-color: rgba(0,136,160,1);
+    border : none;
+    border-radius: 50px ;
+    cursor:pointer ;
+    transition: all 0.3s ease 0s;
+}
+.button:hover{
+    background-color: rgba(0,136,160,0.8)
+}

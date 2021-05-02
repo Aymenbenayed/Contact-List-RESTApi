@@ -1,19 +1,18 @@
 import React ,{ useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux'
-import { getUsers } from '../../JS/Actions/userActions'
-import UserCard from '../UserCard/UserCard'
-//import usersReducer from '../../JS/Reducers/userReducer'
+import { getContacts } from '../../JS/Actions/contactActions'
+import ContactCard from '../ContactCard/ContactCard'
 import './UserList.css'
 
 
 const UserList = () => {
-    const users=useSelector(state=> state.userReducer.users)
+    const contacts=useSelector(state=> state.contactReducer.contacts)
     
-    const isLoading = useSelector(state => state.userReducer.isLoading)
+    const isLoading = useSelector(state => state.contactReducer.isLoading)
     const dispatch=useDispatch()
     
     useEffect(() => {
-        dispatch(getUsers())
+        dispatch(getContacts())
     },[dispatch])
 
     
@@ -21,7 +20,7 @@ const UserList = () => {
         <div className="categories-content">
             { isLoading ? <h1>estanaaaaaa</h1> : 
                 <div className="users-list">
-                {users.map(user => <UserCard key={user._id} user={user} />)}
+                {contacts.map(contact => <ContactCard key={contact._id} contact={contact} />)}
                 </div>
             }
         </div>
