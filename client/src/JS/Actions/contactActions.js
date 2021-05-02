@@ -29,7 +29,7 @@ export const addContact = (newContact,history,contact) => async (dispatch) => {
     try {
         await axios.post("/api/contacts/",newContact)
         dispatch(getContacts());
-        history.push("/")
+        history.push("/Listcontacts")
     } catch (error) {
         dispatch({ type: GET_CONTACTS_FAIL, payload: error.response.data.errors });
         console.log(error)

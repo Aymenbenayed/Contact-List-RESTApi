@@ -14,6 +14,7 @@ import Account from './Components/Account/Account';
 import './App.css';
 import Landpage from './Components/Landpage/Landpage';
 import Contact from './Components/Contact/Contact';
+import Footer from './Components/Footer/Footer';
 
 
 
@@ -38,7 +39,9 @@ function App() {
               <PrivateRoute exact path="/(add_user|edit_user)" component={AddEditUser} />
               <PrivateRoute exact path="/contactDetails/:_id" component={contactDetails}/>
               <PrivateRoute exact path="/Account" component={Account}/>
+
         </Switch>
+        <Footer />
     </div>
   );}
 export default App;

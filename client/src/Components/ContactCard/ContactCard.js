@@ -22,7 +22,7 @@ const ContactCard = ({ contact , history }) => {
         
         <div className="user-card">
             
-            <Link to={`/Profile/${contact._id}`}>
+            <Link to={`/contactDetails/${contact._id}`}>
                 <img src={avatar} alt="avatar" className="avatar    "/>
             </Link>
             <h3>{contact.name}</h3>

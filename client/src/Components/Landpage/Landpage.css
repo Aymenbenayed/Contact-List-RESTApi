@@ -1,0 +1,42 @@
+.home{
+    background: #2cdd9b;
+    background: -webkit-linear-gradient(legacy-direction(to right), #2cdd9b 0%, #1dc8cc 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#2cdd9b), to(#1dc8cc));
+    background: -webkit-linear-gradient(left, #2cdd9b 0%, #1dc8cc 100%);
+    background: -o-linear-gradient(left, #2cdd9b 0%, #1dc8cc 100%);
+    background: linear-gradient(to right, #2cdd9b 0%, #1dc8cc 100%)
+}
+.cont{
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+.paragraph1{
+    margin-top: 150px;
+    margin-left: 100px;
+    text-align: left;
+}
+
+.download{
+    display: flex;
+    /* justify-content: center; */
+    margin-top: 30px;
+}
+
+h5{
+    font-style: italic;
+}
+.paragraph2{
+    text-align: center;
+}
+
+.paragraph3{
+    margin-top: 150px;
+    text-align: left;
+    
+}
+
+.imageland{
+    margin-top: 50px;
+}

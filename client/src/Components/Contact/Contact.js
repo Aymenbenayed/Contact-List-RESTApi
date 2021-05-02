@@ -103,10 +103,9 @@ const Contact = () => {
                       id="form-contact-message"
                       label="Your message"
                       value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                    />
+                      onChange={(e) => setMessage(e.target.value)}/>
                     <MDBBtn rounded color="blue" onClick={() => PostData()}>
-                      <MDBIcon icon="paper-plane" />
+                         <MDBIcon icon="paper-plane"/> 
                     </MDBBtn>
                   </div>
                 </MDBCol>

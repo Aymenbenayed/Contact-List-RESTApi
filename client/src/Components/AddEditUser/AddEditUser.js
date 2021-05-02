@@ -114,7 +114,7 @@ const AddEditUser = ({history}) => {
                 </Button>
                 <Button variant="primary" onClick={() => {
                         handleEdit();handleClose();
-                        history.push("/");}}>
+                        history.push("/Listcontacts");}}>
                         Save Changes
                 </Button>
                 </Modal.Footer>

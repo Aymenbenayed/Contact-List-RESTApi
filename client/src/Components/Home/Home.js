@@ -3,10 +3,10 @@ import './Home.css'
 
 import {Link} from 'react-router-dom' 
 import {toggleFalse} from '../../JS/Actions/contactActions'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 
 const Home = () => {
-
+    const isAuth = useSelector((state) => state.userReducer.isAuth);
 const dispatch = useDispatch()
 
     return(
@@ -16,13 +16,13 @@ const dispatch = useDispatch()
             <Link to="Listcontacts">
                 <button className="app-btn" > Contact List</button>
             </Link>
-
-              {/* add contact button */}
-            <Link to="/add_user">
+            { isAuth ? 
+            (<Link to="/add_user">
                 <button className="app-btn" 
                 onClick={()=>dispatch(toggleFalse())}
                 > Add Contact </button>
-            </Link>
+            </Link>): null}
+              
         </div>  
     )
 }

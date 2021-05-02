@@ -1,8 +1,10 @@
+import { MDBBtn } from 'mdbreact';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom';
 import { getContact } from '../../JS/Actions/contactActions';
+import './Profile.css'
 
 const Profile = () => {
 
@@ -88,6 +90,9 @@ const Profile = () => {
               </div>
             </div>
           </div>
+          <Link to="/Listcontacts">
+          <MDBBtn gradient="aqua">Go back</MDBBtn>
+          </Link>
         </div>
       </div>
     </div>
