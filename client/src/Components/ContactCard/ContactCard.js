@@ -25,7 +25,7 @@ const ContactCard = ({ contact , history }) => {
             <Link to={`/contactDetails/${contact._id}`}>
                 <img src={avatar} alt="avatar" className="avatar    "/>
             </Link>
-            <h3>{contact.name}</h3>
+            <h1>{contact.name}</h1>
             <span>{contact.phone} </span>
             <div className="delete-edit-btns">
             <div>

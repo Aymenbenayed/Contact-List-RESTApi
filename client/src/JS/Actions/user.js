@@ -40,6 +40,7 @@ import {
   };
   
   export const currentUser = () => async (dispatch) => {
+    dispatch({ type: LOAD_USER });
     try {
       const options = {
         headers: { Authorization: localStorage.getItem("token") },

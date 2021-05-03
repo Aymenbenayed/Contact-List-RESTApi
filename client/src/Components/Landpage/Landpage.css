@@ -13,11 +13,14 @@
 }
 
 .paragraph1{
+    /* font-family: "Montserrat"; */
     margin-top: 150px;
     margin-left: 100px;
     text-align: left;
 }
-
+.name{
+    display: flex;
+}
 .download{
     display: flex;
     /* justify-content: center; */
@@ -39,4 +42,31 @@ h5{
 
 .imageland{
     margin-top: 50px;
+}
+
+
+.fa-plus{
+    size: 1px!important;
+    color: #5a81d4;
+}
+
+
+.btn-dark {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40
+}
+
+.btn-dark:hover {
+    color: #fff;
+    background-color: #23272b;
+    border-color: #1d2124
+}
+
+.nav-item .btn {
+    opacity: 0.5
+}
+
+.nav-item .btn:hover {
+    opacity: 1
 }

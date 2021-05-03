@@ -1,6 +1,6 @@
 
 import axios from 'axios'
-import {GET_CONTACTS_FAIL,GET_CONTACTS_LOAD,GET_CONTACTS_SUCESS,GET_CONTACT,TOGGLE_TRUE,TOGGLE_FALSE} from '../Constants/ActionsTypes'
+import {GET_CONTACTS_FAIL,GET_CONTACTS_LOAD,GET_CONTACTS_SUCESS,GET_CONTACT,TOGGLE_TRUE,TOGGLE_FALSE,GET_CONTACT_LOAD} from '../Constants/ActionsTypes'
 
 
 //get all CONTACTS
@@ -26,6 +26,7 @@ console.log(error)
 
 //add user 
 export const addContact = (newContact,history,contact) => async (dispatch) => {
+    /* dispatch({type:GET_CONTACT_LOAD}) */
     try {
         await axios.post("/api/contacts/",newContact)
         dispatch(getContacts());
@@ -39,6 +40,7 @@ export const addContact = (newContact,history,contact) => async (dispatch) => {
 //edit user
 
 export const editContact = (id,newContact) => async (dispatch) => {
+/*dispatch({type:GET_CONTACT_LOAD}) */
     try {
         await axios.put(`/api/contacts/${id}`,newContact)
         dispatch(getContacts())
@@ -48,10 +50,10 @@ export const editContact = (id,newContact) => async (dispatch) => {
     //get one user
 
 export const getContact = (id) => async (dispatch) => {
+    dispatch({type:GET_CONTACT_LOAD})
     try {
         const res = await axios.get(`/api/contacts/${id}`)
             dispatch({type: GET_CONTACT,payload:res.data.contactToFind})
-            console.log(res.data)
     } catch (error) {
         console.log(error)}}
 

@@ -10,7 +10,8 @@ const UserSchema = new Schema({
   },
   email: { type: String },
   password: { type: String },
-  phone : {type: Number}
+  phone : {type: Number},
+  adress : {type: String}
 });
 
 module.exports = User = model("user", UserSchema);

@@ -3,7 +3,7 @@
 body {
     background: linear-gradient(0deg, #fff, 50%, #DEEEFE);
     font-family: 'Rubik', sans-serif;
-    background: #455A64;
+    background: #8bd6c3;
     height: 100 !important
 }
 
@@ -15,14 +15,20 @@ body {
 
 .container-fluid {
     overflow: hidden;
-    background: #5a5757;
+    /* background: #3cd2ec; */
     color: #627482 !important;
     padding-bottom: 0;
-    
+        background: #2cdd9b;
+        background: -webkit-linear-gradient(legacy-direction(to right), #1aa572 0%, #1dc8cc 100%);
+        background: -webkit-gradient(linear, left top, right top, from(#1aa572), to(#1dc8cc));
+        background: -webkit-linear-gradient(left, #1aa572 0%, #1dc8cc 100%);
+        background: -o-linear-gradient(left, #1aa572 0%, #1dc8cc 100%);
+        background: linear-gradient(to right, #1aa572 0%, #1dc8cc 100%) 
 }
 
 .footer2{
-    margin-top: 70px;
+    margin-top: 10px;
+    margin-bottom: 0px;
     text-align: left;
     color: #455A64;
     
@@ -69,3 +75,15 @@ h3 {
     padding-top: 10px;
 
 }
+
+li{
+    list-style: none;
+    color: black;
+    /* display: inline-block; */
+      font-family: 'icomoon' !important;
+      font-style: normal;
+      font-weight: 400;
+      font-variant: normal;
+      text-transform: none;
+      -webkit-font-smoothing: antialiased;
+  }

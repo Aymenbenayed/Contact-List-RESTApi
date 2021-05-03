@@ -82,16 +82,15 @@ const SignUp = ({ history }) => {
                 onChange={handleChange} /> 
 
                 {/* Phone */}
-                <MDBInput label="phone" icon="unlock-alt"
+                <MDBInput label="phone" icon="phone"
                 type="Number"
                 name="phone"
                 onChange={handleChange} /> 
 
               <div className="row mb-3 px-3">
                 {" "}
-
                 <MDBBtn className="BtnSign" gradient="aqua" type="submit" 
-                  onClick={() => {dispatch(register(user, history));} }>Sign In</MDBBtn>
+                  onClick={() => {dispatch(register(user, history));} }>Sign Up</MDBBtn>
               </div>
               <div className="row mb-4 px-3">{" "}
                 <small className="font-weight-bold">

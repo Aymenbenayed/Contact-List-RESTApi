@@ -4,13 +4,14 @@
     justify-content: center;
     align-items: center;
     background-color: #bcd0d1;
-    border: #bcd0d1;
+    border: #2cdd9b;
     border-radius: 20px;
     height: 300px;
     width: 200px;
     margin: 20px;
     padding: 20px;
 }
+
 .avatar{
     width: 40px;
     margin: 20px;

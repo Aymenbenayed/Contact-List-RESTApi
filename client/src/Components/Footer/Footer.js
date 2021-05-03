@@ -1,44 +1,59 @@
-import React from 'react';
-import footr from '../../Assets/footr.png'
-import './Footer.css'
+import React from "react";
+import footr from "../../Assets/Land.png";
+
+import "./Footer.css";
 
 const Footer = () => {
-    return (
-        <div className="container-fluid pb-0 mb-0 justify-content-center text-light ">
-  <footer>
-<div className="footer1">
-  
-<div className="footer2">
-     <h2>Get in Touch</h2>
+  return (
+    <div className="container-fluid pb-0 mb-0 justify-content-center text-light ">
+      <footer>
+        <div className="footer1">
+          <div className="footer2">
+            <h2>Get in Touch</h2>
+            <ul>
+              <li>
+                <i className="fas fa-map-marker-alt"></i> Ariena , Tunisie
+              </li>
+              <li>
+                <i className="fas fa-phone-alt"></i> (+216) 58 811 554
+              </li>
+              <li>
+                <i className="fas fa-envelope"></i> Aymen.bnmohamed@gmail.com
+              </li>
+              <li>
+                <i className="fas fa-clock"></i>7 jours sur 7,
+                <br />
+                Du Lundi Au Samedi: 08h00 à 19h00
+                <br />
+                Dimanche: 09h00 à 15h00
+              </li>
+            </ul>
+            <br />
 
-     <span className="touch">
-     <i class="far fa-envelope"></i>
-     aymen.bnmohamed@outlook.com
-     </span>
-     <br/>
-     <span className="touch">
-     <i class="fas fa-phone-alt"></i>
-       +216 00 00 00 00 
-     </span>
-     <br/>
-     <div className="social">
-     <i class="fab fa-facebook-f"></i>
-     <i class="fab fa-instagram"></i>
-     <i class="fab fa-twitter"></i>
-     </div>
-     
-   </div>
+            
+          </div>
 
-  <div>
-  <img src={footr} alt="footer" style={{width:'500px'}}/>
-  </div>
-</div>
+          <div className="footer2">
+            <img src={footr} alt="footer" style={{ width: "150px" }} />
+            <div className="social">
+            <div className="facebook text-center mr-3">
+                <i className="fab fa-facebook-f"></i>
+              </div>
+              <div className="twitter text-center mr-3">
+                <i className="fab fa-twitter"></i>
+              </div>
+              <div className="linkedin text-center mr-3">
+                <i className="fab fa-linkedin"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p className="copyright">
+          Copyright © 2021. Aymen Ben Ayed , All rights reserved.
+        </p>
+      </footer>
+    </div>
+  );
+};
 
-<p className="copyright">Copyright © 2021. Aymen Ben Ayed , All rights reserved.</p>
-  </footer>
-</div>
-
-    )
-}
-
-export default Footer
+export default Footer;

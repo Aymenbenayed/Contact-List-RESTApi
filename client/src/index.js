@@ -5,10 +5,9 @@ import {Provider} from 'react-redux';
 import store from './JS/Store/store'
 import './index.css';
 import App from './App';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
-
-/* import '~mdb-ui-kit/css/mdb.min.css'; */
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
 
 ReactDOM.render(
 
@@ -17,7 +16,6 @@ ReactDOM.render(
   <BrowserRouter>
     <App />
   </BrowserRouter>
-
   </Provider>
   </React.StrictMode>,
   document.getElementById('root')

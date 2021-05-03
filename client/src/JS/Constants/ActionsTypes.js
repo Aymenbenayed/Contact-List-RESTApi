@@ -4,7 +4,7 @@ export const GET_CONTACTS_FAIL ="GET_CONTACTS_FAIL"
 
 //export const DELETE_USER ="DELETE_USER"
 export const GET_CONTACT = "GET_CONTACT"
-
+export const GET_CONTACT_LOAD = "GET_CONTACT_LOAD"
 export const TOGGLE_TRUE = "TOGGLE_TRUE"
 export const TOGGLE_FALSE = "TOGGLE_FALSE"
 export const VIDE_ERRORS = "VIDE_ERRORS"
