@@ -19,8 +19,7 @@ const Navbarr = () => {
             className="logo"
             src={logo}
             alt="logo"
-            style={{ width: "100px", margin: "0px 20px" }}
-          />
+            style={{ width: "100px", margin: "0px 20px" }}/>
           <button
             className="navbar-toggler"
             type="button"
@@ -39,14 +38,21 @@ const Navbarr = () => {
                   Home
                 </a>
               </li>
-              <li className="nav-item active">
-                <a className="nav-link" href="/Listcontacts"> Liste Of contacts 
-                </a>
-              </li>
-              <li className="nav-item">
+              {
+                isAuth? 
+                <div className="privateroute">
+                  <li className="nav-item active">
+                    <a className="nav-link" href="/Listcontacts"> Liste Of contacts 
+                    </a>
+                  </li>
+                  <li className="nav-item">
                 <a className="nav-link" href="/Account"> Profile
                 </a>
               </li>
+                </div>
+              : null
+              }
+              
               <li className="nav-item">
                 <a className="nav-link" href="/contact"> Contact us
                 </a>
@@ -55,13 +61,18 @@ const Navbarr = () => {
 
             {isAuth ? (
                 <ul className="navbar-nav ml-auto">
-                
+                {isAuth && !(user && user.role===0)?
+                  <Link to="/Admindashboard">
+                  <li className="nav-item">
+                    <a className="btn rounded-pill btn-dark py-2 px-4" >dashboard</a>
+                  </li>
+                  </Link>: null}
                 <Link  to="/" onClick={() => dispatch(logout())}>
                   <li className="nav-item">
-                    <h5>welcome <span className="namecurrent">{user && user.name}</span></h5>
                     <a className="btn rounded-pill btn-dark py-2 px-4" >logout</a>
                   </li>
                 </Link>
+                <h6>welcome <span className="namecurrent"><br/>{user && user.name}</span></h6>
               </ul>
             ) : (
               <ul className="navbar-nav ml-auto">

@@ -131,27 +131,22 @@ body {
         margin-top: 0px
     }
 }
-
 .header2 .btn-dark {
     color: #fff;
     background-color: #343a40;
     border-color: #343a40
 }
-
 .header2 .btn-dark:hover {
     color: #fff;
     background-color: #23272b;
     border-color: #1d2124
 }
-
 .header2 .h2-nav .navbar-nav .nav-item .btn {
     opacity: 0.5
 }
-
 .header2 .h2-nav .navbar-nav .nav-item .btn:hover {
     opacity: 1
 }
-
 .header2 .dropdown-submenu>.dropdown-menu {
     top: 0;
     left: 100%;
@@ -159,7 +154,6 @@ body {
     border-radius: 0.25rem;
     display: none
 }
-
 .navbar-brand{
     font-style:italic;
     font-weight: bolder;
@@ -173,4 +167,7 @@ body {
 .namecurrent{
     color: #1f3e6d;
     font-family: "Montserrat", sans-serif;
+}
+.privateroute{
+    display:flex;
 }

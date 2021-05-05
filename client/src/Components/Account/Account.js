@@ -24,97 +24,73 @@ const Account = () => {
                   />
                 </div>
                 {/* info User */}
-                {/* <div className="media-body mb-5 text-white UpdattingProfil">
-                  <div className="NameUser">
-                    <h4 className="mt-0 mb-3"> Name : {user && user.name}</h4>
+                {loadUser ? (
+                  <Loading />
+                ) : (
+                  <div className="col-md-8">
+                    <div className="card mb-3">
+                      <div className="card-body">
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <h6 className="mb-0">Full Name</h6>
+                          </div>
+                          <div className="col-sm-9 text-secondary">
+                            {(user && user.name) || ""}
+                          </div>
+                        </div>
+                        <hr />{" "}
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <h6 className="mb-0">Last Name</h6>
+                          </div>
+                          <div className="col-sm-9 text-secondary">
+                            {(user && user.lastName) || ""}
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <h6 className="mb-0">Email</h6>
+                          </div>
+                          <div className="col-sm-9 text-secondary">
+                            {(user && user.email) || ""}
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <h6 className="mb-0">Phone</h6>
+                          </div>
+                          <div className="col-sm-9 text-secondary">
+                            {(user && user.phone) || ""}
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <h6 className="mb-0">Address</h6>
+                          </div>
+                          <div className="col-sm-9 text-secondary">
+                            {(user && user.adress) || ""}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="lastNameUser">
-                    <h4 className="mt-0 mb-3">lastName: {user && user.lastName}</h4>
-                  </div>
-                  <div className="EmailUser">
-                    <h4 className="mt-0 mb-3">Email: {user && user.email}</h4>
-                  </div>
-                  <div className="phoenUser">
-                    <h4 className="mt-0 mb-3">Phone : {user && user.phone}</h4>
-                  </div>
-                </div> */}
-                {
-                  loadUser ? <Loading /> : <div className="col-md-8">
-                <div className="card mb-3">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Full Name</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">
-                    {(user && user.name) || ""}
-                  </div>
-                </div>
-                <hr />{" "}
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Pseudo</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">
-                    {(user && user.lastName) || ""}
-                  </div>
-                </div>
-                <hr />
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Email</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">
-                    {(user && user.email) || ""}
-                  </div>
-                </div>
-                <hr />
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Phone</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">
-                    {(user && user.phone) || ""}
-                  </div>
-                </div>
-                <hr />
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Address</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">
-                    {(user && user.adress) || ""}
-                  </div>
-                </div>
+                )}
               </div>
-            </div>
-              </div>
-               
-                }
-
-                
-                
-              
-              
-              
-              
-              
-              
-              
-              </div>
-
-
             </div>
             <br />
             <div className="px-4 py-5">
               <h5 className="mb-0">About</h5>
               <div className="p-4 rounded shadow-sm bg-light">
-              <h3> hello  {user && user.name}</h3>
+                <h3> hello {user && user.name}</h3>
                 <h6>
                   A contact list is a feature found in instant messaging, email
                   clients, mobile phones, online games or communities and is
-                  usually nothing but a collection of screen names.{" "}
-                  You can add your favorites contact and take their information when you need 
+                  usually nothing but a collection of screen names. You can add
+                  your favorites contact and take their information when you
+                  need
                 </h6>
               </div>
             </div>

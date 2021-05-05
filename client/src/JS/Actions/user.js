@@ -5,6 +5,7 @@ import {
     LOGIN_USER,
     REGISTER_USER,
     LOGOUT_USER,
+    GET_USERS_LOAD,GET_USERS_SUCESS,GET_USERS_FAIL , GET_USER_LOAD , GET_USER_SUCESS ,  GET_USER_FAIL
   } from "../Constants/user";
   import axios from "axios";
   
@@ -64,3 +65,45 @@ import {
     };
   };
   
+  export const getUsers = () => async (dispatch) => {
+    dispatch({type:GET_USERS_LOAD})
+    try {
+      const res = await axios.get("/api/user")
+      dispatch({type: GET_USERS_SUCESS,payload:res.data.listUsers})
+    } catch (error) {
+      dispatch({type:GET_USERS_FAIL,payload:error})
+      console.log(error)
+    }
+  }
+
+  // delete user
+export const deleteUser = (id) => async (dispatch) => {
+  try {
+      await axios.delete(`/api/user/delete/${id}`)
+      console.log(id)
+      dispatch(getUsers())
+  } catch (error) {
+      console.log(error)
+  }
+}
+
+//edit user 
+export const editUser = (id,newUser) => async (dispatch) => {
+  try {
+      await axios.put(`/api/user/${id}`,newUser)
+      dispatch(getUsers())
+  } catch (error) {
+      console.log(error)
+}}
+
+
+export const getUser = (_id) => async (dispatch) => {
+  dispatch({type:GET_USER_LOAD})
+  try {
+      const res = await axios.get(`/api/user/${_id} `)
+      dispatch({type: GET_USER_SUCESS, payload : res.data })
+  } catch (error) {
+      dispatch({type:GET_USER_FAIL,payload:error})
+      console.log(error)
+  }
+}

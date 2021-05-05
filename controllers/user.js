@@ -17,7 +17,8 @@ exports.Signup = async (req, res) => {
       });
       return;
     }
-    const newUser = new User({ name, lastName, email, password ,  phone , adress});
+    let role=0
+    const newUser = new User({ name, lastName, email, password ,  phone , adress , role});
 
     // hash the password
     const hashedpassword = bcrypt.hashSync(password, salt);
@@ -75,3 +76,73 @@ exports.SignIn = async (req, res) => {
     res.status(400).send({ errors: [{ msg: "can not get the currentUser" }] });
   }
 };
+
+
+/**
+ * GET all
+ *  */
+ exports.getAllUsers = async (req, res) => {
+  try {  
+          const listUsers = await User.find()
+          res.status(200).send({ msg: 'This is the list of users ...', listUsers })
+  } catch (error) {
+          res.status(400).send({ msg: 'Can not get all users !!', error })
+  }
+  }
+  
+
+  
+/**
+ * change info in account
+ *  */
+exports.editUser = async (req, res) => {
+  // const { name, email, phone } = req.body
+  const { _id } = req.params
+  try {
+  /*   // hash the password
+    const hashedpassword = bcrypt.hashSync(password, salt);
+    newUser.password = hashedpassword; */
+
+      const userToEdit = await User.updateOne({ _id }, { $set: { ...req.body } })
+    // console.log(userToEdit)
+      if (!userToEdit.nModified) {
+      res.status(400).send({ msg: 'User already updated ..', userToEdit })
+      return
+      }
+      res.status(200).send({ msg: 'User updated ..', userToEdit })
+  } catch (error) {
+      res.status(400).send({ msg: 'Can not edit user with this id !!', error })
+  }
+}
+
+
+
+
+/**
+* GET one contact
+*  */
+exports.getUser = async (req, res) => {
+  try {
+          const { _id } = req.params
+          const userToFind = await User.findOne({ _id })
+          console.log(userToFind)
+          res.status(200).send({ msg: 'I find the user ...', userToFind })
+  } catch (error) {
+          res.status(400).send({ msg: 'Can not get user with this id !!', error })
+      }
+  }
+  
+  
+  /**
+  * delete user
+  *  */
+  
+  //Delete Product
+  exports.deleteUser = async (req, res) =>{
+  try {
+      const oldUser = await User.findById({_id : req.params.id});
+      await User.deleteOne({_id : req.params.id})
+      res.status(200).send({msg : 'User is Deleted ...' , oldUser})
+  } catch (error) {
+      res.status(400).send({msg : "Can Not Deleted Product with this id !!!", error})
+  }}

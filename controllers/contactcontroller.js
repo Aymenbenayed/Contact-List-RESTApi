@@ -54,7 +54,7 @@ const getContact = async (req, res) => {
     } catch (error) {
         res.status(400).send({ msg: 'Can not get Contact with this id !!', error })
     }
-    }
+}
 
 
 

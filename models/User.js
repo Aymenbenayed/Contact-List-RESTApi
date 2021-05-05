@@ -11,7 +11,12 @@ const UserSchema = new Schema({
   email: { type: String },
   password: { type: String },
   phone : {type: Number},
-  adress : {type: String}
+  adress : {type: String},
+  role: {
+    type: Number, 
+    enum: [0,1],
+    default: 0,
+  },
 });
 
 module.exports = User = model("user", UserSchema);

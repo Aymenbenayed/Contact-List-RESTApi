@@ -70,7 +70,6 @@ const SignIn = ({ history }) => {
                 name="password"
                 onChange={handleChange}
               />
-
               <div className="row mb-3 px-3">
                 {" "}
                 <MDBBtn

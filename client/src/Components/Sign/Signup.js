@@ -5,9 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Errors from "../Errors/Erorrs";
 import { MDBBtn, MDBInput } from "mdbreact";
-
 import { register, videErrors } from "../../JS/Actions/user";
-
 import "./Sign.css";
 
 const SignUp = ({ history }) => {
@@ -85,6 +83,11 @@ const SignUp = ({ history }) => {
                 <MDBInput label="phone" icon="phone"
                 type="Number"
                 name="phone"
+                onChange={handleChange} /> 
+                {/* Adress */}
+                <MDBInput label="phone" icon="map"
+                type="Text"
+                name="adress"
                 onChange={handleChange} /> 
 
               <div className="row mb-3 px-3">

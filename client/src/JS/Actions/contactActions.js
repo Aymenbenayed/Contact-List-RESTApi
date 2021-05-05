@@ -39,10 +39,10 @@ export const addContact = (newContact,history,contact) => async (dispatch) => {
 
 //edit user
 
-export const editContact = (id,newContact) => async (dispatch) => {
+export const editContact = (_id,newContact) => async (dispatch) => {
 /*dispatch({type:GET_CONTACT_LOAD}) */
     try {
-        await axios.put(`/api/contacts/${id}`,newContact)
+        await axios.put(`/api/contacts/${_id}`,newContact)
         dispatch(getContacts())
     } catch (error) {
         console.log(error)
