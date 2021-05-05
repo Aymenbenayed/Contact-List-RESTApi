@@ -11,7 +11,26 @@
     margin: 20px;
     padding: 20px;
 }
+.user-card:hover {
+    transform: scale(1.15);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+  }
+  .user-card {
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin:30px;
+  }
+  .contact-card:hover {
+    transform: scale(1.15);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+  }
 
+.contact-card{
+    margin: 20px;
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin:30px;
+}
 .avatar{
     width: 40px;
     margin: 20px;
@@ -26,4 +45,8 @@
     width: 50px;
     margin: 10px;
     cursor: pointer;
+}
+.userName{
+    font-weight: 500;
+    color: rgb(49, 138, 97);
 }

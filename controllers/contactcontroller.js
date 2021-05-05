@@ -4,7 +4,7 @@
 
 const postContact = async (req, res) => {
     try {
-        const { name, email, phone , adress , pseudo } = req.body
+        const { name, email, phone , adress , pseudo , user } = req.body
       // handling errors : email & name are required
         /* if (!email || !name) {
         res.status(400).send({ msg: 'Email and Name are required !!!' })
@@ -19,7 +19,7 @@ const postContact = async (req, res) => {
     }
 
       // create and save the new user
-    const newContact = new Contact({ name, email, phone , pseudo , adress  })
+    const newContact = new Contact({ name, email, phone , pseudo , adress , user })
     await newContact.save()
         res.status(200).send({ msg: 'Contact added successfully ...', newContact })
 
@@ -28,19 +28,17 @@ const postContact = async (req, res) => {
     }
 }
 
-
 /**
  * GET all
  *  */
 const getAllContacts = async (req, res) => {
     try {
-        const listContacts = await Contact.find()
+        const listContacts = await Contact.find().populate('user', 'name', User)
         res.status(200).send({ msg: 'This is the list of Contacts ...', listContacts })
     } catch (error) {
         res.status(400).send({ msg: 'Can not get all Contacts !!', error })
     }
     }
-
 
 /**
  * GET one contact
@@ -55,7 +53,6 @@ const getContact = async (req, res) => {
         res.status(400).send({ msg: 'Can not get Contact with this id !!', error })
     }
 }
-
 
 
 /**

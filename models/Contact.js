@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose')
 const schema = mongoose.Schema
-
+const {ObjectId} = mongoose.Schema
 
 
 const contactSchema = new schema({
@@ -19,7 +19,11 @@ const contactSchema = new schema({
     },
     phone:{
         type:Number
-    } 
+    } ,
+    user: {
+        type: ObjectId,
+        ref: 'User'
+    }
 })
 
 module.exports = Contact = mongoose.model('contact', contactSchema)

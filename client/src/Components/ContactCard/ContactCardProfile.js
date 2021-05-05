@@ -1,43 +1,36 @@
 import React, { useState } from "react";
-import {
-  toggleTrue,
-  deleteContact,
-  getContact,
-} from "../../JS/Actions/contactActions";
+import { Card, Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import avatar from '../../Assets/avatar.png'
+import {deleteContact,getContact,toggleTrue,} from "../../JS/Actions/contactActions";
+import deleteBtn from '../../Assets/deleteBtn.png'
+import editBtn from '../../Assets/editBtn.png'
 import { Link } from "react-router-dom";
-import "./ContactCard.css";
-import editBtn from "../../Assets/editBtn.png";
-import deleteBtn from "../../Assets/deleteBtn.png";
-import avatar from "../../Assets/avatar.png";
-import { Button, Modal } from "react-bootstrap";
-const ContactCard = ({ contact, history }) => {
-  const isAuth = useSelector((state) => state.userReducer.isAuth);
-  const user = useSelector((state) => state.userReducer.user);
-  
+/* import "./cards.css"; */
+
+const ContactCardProfile = ({ contact , history }) => {
   const dispatch = useDispatch();
+  
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
   const handleDelete = () => {
     dispatch(deleteContact(contact._id));
   };
-
   return (
-    <div className="user-card">
-      <Link to={`/contactDetails/${contact._id}`}>
-        <img src={avatar} alt="avatar" className="avatar"/>
-      
-      <h5>{contact.name}</h5>
+    <div className="contact-card">
+      <Card style={{ width: "15rem" }}>
+      <Link  to={`/contactDetails/${contact._id}`}>
+      <Card.Img
+          variant="top"
+          src={avatar}
+          alt="avatar-contact"
+          />
       </Link>
-
-      <h5>{contact.pseudo}</h5>
-      <span>{contact.phone} </span>
-      <p>Add By<span className="userName">{contact.user?.name}</span></p>
-      
-      {isAuth && !(user && user.role === 0) ? (
-        <div className="delete-edit-btns">
+        <Card.Body>
+          <Card.Title>{contact.name}</Card.Title>
+          <Card.Text>{contact.email}</Card.Text>
+          <div className="delete-edit-btns">
           <div>
             <img src={deleteBtn} onClick={handleShow} alt="delete-icon" />
             <Modal show={show} onHide={handleClose} animation={false}>
@@ -55,13 +48,13 @@ const ContactCard = ({ contact, history }) => {
                   variant="primary"
                   onClick={() => {
                     handleDelete();
-                    handleClose();}}>
+                    handleClose();
+                    history.push("/Account");}}>
                   Delete
                 </Button>
               </Modal.Footer>
             </Modal>
           </div>
-
           <Link to="/edit_user">
             <img
               src={editBtn}
@@ -69,11 +62,14 @@ const ContactCard = ({ contact, history }) => {
               onClick={() => {
                 dispatch(toggleTrue());
                 dispatch(getContact(contact._id));
-              }}/>
+              }}
+            />
           </Link>
         </div>
-      ) : null}
+        </Card.Body>
+      </Card>
     </div>
   );
 };
-export default ContactCard;
+
+export default ContactCardProfile;

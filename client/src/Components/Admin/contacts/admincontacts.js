@@ -15,12 +15,13 @@ import "./Products.css";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteContact, getContact, getContacts } from "../../../JS/Actions/contactActions";
 import SpinnerPage from "../../Spinner/Spinner";
+import { getUser } from "../../../JS/Actions/user";
 
 
 
 const Admincontacts = ({history}) => {
   const contacts = useSelector((state) => state.contactReducer.contacts);
-
+  
 
   const loading = useSelector((state) => state.contactReducer.loading);
   const dispatch = useDispatch();
@@ -29,7 +30,9 @@ const Admincontacts = ({history}) => {
 dispatch(getContacts())
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[dispatch]);
-  
+  useEffect(()=>{
+    dispatch(getUser(contacts.user))
+  })
   
   return (
     <div className="dashbored-accueil">
@@ -60,6 +63,7 @@ dispatch(getContacts())
                 <th>Email</th>
                 <th>phone</th>
                 <th>adress</th>
+                <th>user</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
@@ -72,7 +76,7 @@ dispatch(getContacts())
                         <td>{contact.email}</td>
                         <td>{contact.phone}</td>
                         <td>{contact.adress}</td>
-                        {/* <td>{contact.category.name}</td> */}
+                        <td>{contact.user.name}</td>    
                   <td>
                   <Link to={`/Admindashboard/Admincontacts/EditContacts/${contact._id}`}>
                     <i className="fas fa-edit" 

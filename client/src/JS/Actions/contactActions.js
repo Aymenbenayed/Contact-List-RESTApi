@@ -25,7 +25,7 @@ console.log(error)
 }}
 
 //add user 
-export const addContact = (newContact,history,contact) => async (dispatch) => {
+export const addContact = (newContact,history) => async (dispatch) => {
     /* dispatch({type:GET_CONTACT_LOAD}) */
     try {
         await axios.post("/api/contacts/",newContact)

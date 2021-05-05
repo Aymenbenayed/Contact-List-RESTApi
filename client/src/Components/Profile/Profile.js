@@ -11,9 +11,10 @@ const Profile = () => {
   const { _id } = useParams();
   const contact = useSelector((state) => state.contactReducer.contact);
   const loading = useSelector((state) => state.contactReducer.loading);
+  const isAuth = useSelector((state) => state.userReducer.isAuth);
+  const user = useSelector((state) => state.userReducer.user);
 
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getContact(_id));
   }, [_id, dispatch]);
@@ -35,7 +36,7 @@ const Profile = () => {
                   />
                   <div className="mt-3">
                     <h4>{contact && contact.name}</h4>
-                    <Link to="/edit">
+                    <Link to="/edit_user">
                       <i className="fas fa-user-edit"></i>
                     </Link>
                   </div>
@@ -43,69 +44,70 @@ const Profile = () => {
               </div>
             </div>
           </div>
-      {
-        loading ? <Loading /> : 
-        <div className="col-md-8">
-            <div className="card mb-3">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Full Name</h6>
+          {loading ? (
+            <Loading />
+          ) : (
+            <div className="col-md-8">
+              <div className="card mb-3">
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Full Name</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {(contact && contact.name) || ""}
+                    </div>
                   </div>
-                  <div className="col-sm-9 text-secondary">
-                    {(contact && contact.name) || ""}
+                  <hr />{" "}
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Pseudo</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {(contact && contact.pseudo) || ""}
+                    </div>
                   </div>
-                </div>
-                <hr />{" "}
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Pseudo</h6>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Email</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {(contact && contact.email) || ""}
+                    </div>
                   </div>
-                  <div className="col-sm-9 text-secondary">
-                    {(contact && contact.pseudo) || ""}
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Phone</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {(contact && contact.phone) || ""}
+                    </div>
                   </div>
-                </div>
-                <hr />
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Email</h6>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Address</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      {(contact && contact.adress) || ""}
+                    </div>
                   </div>
-                  <div className="col-sm-9 text-secondary">
-                    {(contact && contact.email) || ""}
-                  </div>
-                </div>
-                <hr />
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Phone</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">
-                    {(contact && contact.phone) || ""}
-                  </div>
-                </div>
-                <hr />
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Address</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">
-                    {(contact && contact.adress) || ""}
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Add By</h6>
+                    </div>
+                    
                   </div>
                 </div>
               </div>
+              <Link to="/Listcontacts">
+                <MDBBtn gradient="aqua">Go back</MDBBtn>
+              </Link>
             </div>
-            <Link to="/Listcontacts">
-              <MDBBtn gradient="aqua">Go back</MDBBtn>
-            </Link>
-          </div> 
-      }
-
-
-          
-
-
-
-
+          )}
         </div>
       </div>
     </div>
