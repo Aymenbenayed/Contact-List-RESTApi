@@ -5,6 +5,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
+    <div className="footerrrr">
     <div className="container-fluid pb-0 mb-0 justify-content-center text-light ">
       <footer>
         <div className="footer1">
@@ -52,6 +53,7 @@ const Footer = () => {
           Copyright © 2021. Aymen Ben Ayed , All rights reserved.
         </p>
       </footer>
+    </div>
     </div>
   );
 };

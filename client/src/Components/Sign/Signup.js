@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Errors from "../Errors/Erorrs";
 import { MDBBtn, MDBInput } from "mdbreact";
 import { register, videErrors } from "../../JS/Actions/user";
+import signin from '../../Assets/signin.jpg'
 import "./Sign.css";
 
 const SignUp = ({ history }) => {
@@ -28,7 +29,7 @@ const SignUp = ({ history }) => {
         <div className="row d-flex">
           <div className="col-lg-6">
             {" "}
-            <img src="https://i.imgur.com/uNGdWHi.png" className="image" alt="." />
+            <img src={signin} className="image" alt="." />
           </div>{" "}
           <div className="col-lg-6">
             <div className="card2 card border-0 px-4 py-5">
@@ -48,32 +49,25 @@ const SignUp = ({ history }) => {
                 <div className="line" />{" "}
                 <small className="or text-center">Or</small>
                 <div className="line" />
-              </div>
+              </div>         
               
                 {/* Full Name  */}
-                <MDBInput label="name" icon="user"
+                <MDBInput label="name" 
                 type="text"
                 name="name"
+                icon="user"
                 onChange={handleChange} />
-
                 {/* lastName */}
-
                 <MDBInput label="lastName" icon="user"
                 type="text"
                 name="lastName"
                 onChange={handleChange} /> 
-                
-
                 {/* email */}
-
                 <MDBInput label="Email" icon="at"
                     type="text"
                      name="email"
                     onChange={handleChange} />
-
-               
                 {/* Password  */}
-
                 <MDBInput label="Password" icon="unlock-alt"
                 type="Password"
                 name="password"
@@ -85,7 +79,7 @@ const SignUp = ({ history }) => {
                 name="phone"
                 onChange={handleChange} /> 
                 {/* Adress */}
-                <MDBInput label="phone" icon="map"
+                <MDBInput label="adress" icon="map"
                 type="Text"
                 name="adress"
                 onChange={handleChange} /> 

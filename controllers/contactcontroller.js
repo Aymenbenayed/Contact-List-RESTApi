@@ -46,7 +46,7 @@ const getAllContacts = async (req, res) => {
 const getContact = async (req, res) => {
     try {
         const { _id } = req.params
-        const contactToFind = await Contact.findOne({ _id })
+        const contactToFind = await Contact.findOne({ _id }).populate('user', 'name', User)
         console.log(contactToFind)
         res.status(200).send({ msg: 'I find the Contact ...', contactToFind })
     } catch (error) {

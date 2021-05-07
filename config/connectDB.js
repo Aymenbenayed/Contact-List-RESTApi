@@ -1,6 +1,7 @@
 
 // require mongoose
-const mongoose = require('mongoose')
+const mongoose = require('mongoose') 
+
 
 // Connect to DB
 const connectDB = async () => {
